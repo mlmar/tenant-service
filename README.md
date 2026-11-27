@@ -30,6 +30,7 @@ Without Docker, run `make dev-api` and `make dev-web` in separate terminals. Set
 
 ## Configure and release
 
+- [Set up a new client project](docs/NEW_CLIENT_SETUP.md) from the template through local development and launch.
 - [Rebrand the app](docs/REBRAND.md) to change identity, color, and artwork.
 - [Configure providers](docs/PROVIDERS.md) for Clerk, Supabase, Postmark, and Microsoft 365.
 - [Release the app](docs/RELEASE.md) with Cloud Run or Expo EAS.
