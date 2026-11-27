@@ -1,0 +1,16 @@
+**/node_modules
+**/dist
+**/.expo
+**/.env
+**/.env.*
+.git
+.projects
+.codex
+.agents
+*.log
+**/credentials*.json
+**/service-account*.json
+frontend/ios
+frontend/android
+
+.local

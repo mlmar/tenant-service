@@ -1,0 +1,15 @@
+import {useEffect,useMemo,useRef,useState} from 'react';
+import {Image,StyleSheet,Text,TextInput,View} from 'react-native';
+import {captureRef} from 'react-native-view-shot';
+import * as FileSystem from 'expo-file-system/legacy';
+import {createDefaultMediaTextOverlay,fontFamilyForOverlay,fontSizeForOverlay,lineHeightForOverlay} from '../lib/mediaTextOverlay';
+import {prepareNativeAvatar} from '../lib/prepareImage';
+import {Button} from './Button';
+import {theme} from '../branding/theme';
+export function ImageTextEditor({uri,onApply,onCancel,onError}:{uri:string;onApply:(file:string)=>void;onCancel:()=>void;onError:(message:string)=>void}){
+ const ref=useRef<View>(null);const[value,setValue]=useState(createDefaultMediaTextOverlay),[height,setHeight]=useState(240),[busy,setBusy]=useState(false);
+ useEffect(()=>{Image.getSize(uri,(w,h)=>setHeight(Math.max(80,Math.min(360,240*h/w))),()=>onError('Unable to load photo for text editing.'));},[uri]);
+ const styles=useMemo(()=>StyleSheet.create({container:{gap:12},preview:{width:240,height,alignSelf:'center',backgroundColor:theme.mainWhite},image:{width:'100%',height:'100%'},overlay:{position:'absolute',left:12,right:12,top:height*.5-20,backgroundColor:value.background?theme.primaryDark:'transparent',padding:8,borderRadius:8},text:{fontSize:fontSizeForOverlay(value.size)*.7,lineHeight:lineHeightForOverlay(value.size)*.7,fontFamily:fontFamilyForOverlay(value.font),fontWeight:value.bold?'800':'500',color:value.color,textAlign:'center'},input:{borderWidth:1,borderColor:theme.outlineCard.border,borderRadius:10,minHeight:48,padding:12,color:theme.primaryDark,backgroundColor:theme.mainWhite,fontSize:15},row:{flexDirection:'row',flexWrap:'wrap',gap:8}}),[value,height]);
+ async function apply(){setBusy(true);let result:string|undefined;try{result=await captureRef(ref,{format:'jpg',quality:.78,result:'tmpfile'});onApply(await prepareNativeAvatar(result));}catch{onError('Unable to apply text.');}finally{if(result)await FileSystem.deleteAsync(result,{idempotent:true}).catch(()=>{});setBusy(false);}}
+ return <View style={styles.container}><View ref={ref} collapsable={false} style={styles.preview}><Image source={{uri}} resizeMode="contain" style={styles.image}/>{value.text?<View style={styles.overlay}><Text style={styles.text}>{value.text}</Text></View>:null}</View><TextInput accessibilityLabel="Photo text" value={value.text} onChangeText={text=>setValue({...value,text})} maxLength={200} style={styles.input}/><View style={styles.row}><Button label="Bold" variant="outline" onPress={()=>setValue({...value,bold:!value.bold})}/><Button label="Background" variant="outline" onPress={()=>setValue({...value,background:!value.background})}/><Button label="Text size" variant="outline" onPress={()=>setValue({...value,size:value.size==='md'?'lg':value.size==='lg'?'sm':'md'})}/></View><View style={styles.row}><Button label="Cancel text" variant="outline" onPress={onCancel}/><Button label="Apply text" disabled={!value.text.trim()} busy={busy} onPress={()=>void apply()}/></View></View>;
+}

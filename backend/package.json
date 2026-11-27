@@ -1,0 +1,31 @@
+{
+  "name": "@tenant-service/backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file-if-exists=.env.local src/server.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "start": "node --env-file-if-exists=.env.local dist/server.js",
+    "test": "tsx --test src/events/eventBus.test.ts src/email/client.test.ts src/email/delivery.test.ts src/profile/service.test.ts src/profile/images.test.ts src/profile/routes.test.ts src/admin/service.test.ts"
+  },
+  "dependencies": {
+    "@clerk/express": "^2.1.85",
+    "@supabase/supabase-js": "^2.118.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "nodemailer": "^10.3.1",
+    "pg": "^8.23.1",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.0.0",
+    "@types/nodemailer": "^8.0.2",
+    "@types/pg": "^8.23.1",
+    "tsx": "^4.20.6",
+    "typescript": "~5.9.2"
+  }
+}

@@ -1,0 +1,16 @@
+.brandStyle-header { width: 100%; height: var(--layout-header-height); display: flex; align-items: center; }
+.brandStyle-logoButton, .brandStyle-wordmarkButton { display: flex; align-items: center; justify-content: center; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.brandStyle-logoButton:disabled, .brandStyle-wordmarkButton:disabled { cursor: default; }
+.brandStyle-logoButton:focus-visible, .brandStyle-wordmarkButton:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+.brandStyle-logoButton { flex: none; width: 44px; height: 44px; }
+.brandStyle-headerMark { width: 36px; height: 36px; object-fit: contain; }
+.brandStyle-center { flex: 1; min-width: 0; display: flex; justify-content: center; padding-inline: 8px; }
+.brandStyle-wordmarkButton { width: 100%; max-width: 200px; height: 44px; }
+.brandStyle-headerWordmark { width: 100%; max-width: 200px; color: var(--color-on-dark); font-size: var(--type-small-size); font-weight: 700; }
+.brandStyle-balance { width: 44px; flex: none; }
+.brandStyle { display: flex; width: 100%; max-width: 480px; align-items: center; justify-content: center; gap: 20px; }
+.brandStyle--stacked { flex-direction: column; }
+.brandStyle-mark { width: 104px; height: 104px; object-fit: contain; }
+.brandStyle-wordmarkSlot { flex: 1; min-width: 0; height: 50px; }
+.brandStyle--stacked .brandStyle-wordmarkSlot { flex: none; width: 100%; max-width: 240px; height: 40px; }
+.brandStyle-wordmark { display: block; color: var(--color-on-dark); font-size: var(--type-title-size); font-weight: 700; text-align: center; }

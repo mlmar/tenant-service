@@ -1,0 +1,36 @@
+{
+  "name": "tenant-service",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "overrides": {
+    "react": "19.1.4",
+    "react-dom": "19.1.4"
+  },
+  "scripts": {
+    "dev:web": "npm --workspace frontend run web",
+    "dev:api": "npm --workspace backend run dev",
+    "typecheck": "npm run check:react && npm run check:styles && npm run check:backend && npm run check:frontend && npm --workspace frontend run typecheck && npm --workspace backend run typecheck",
+    "build": "npm --workspace frontend run build && npm --workspace backend run build",
+    "test": "npm --workspace backend test && npm run test:frontend",
+    "check:react": "node scripts/check-react-runtime.mjs",
+    "test:admin:db": "node --import tsx --test backend/src/admin/store.test.ts",
+    "theme": "node frontend/scripts/generate-theme.mjs",
+    "check:styles": "node scripts/check-styles.mjs",
+    "test:state": "node --import tsx --test frontend/src/state/appStore.test.ts",
+    "check:backend": "node scripts/check-backend-boundaries.mjs",
+    "test:frontend": "node --import tsx --test frontend/src/state/appStore.test.ts frontend/src/api/application.test.ts frontend/src/auth/clerkSignInAdapter.test.ts",
+    "check:frontend": "node scripts/check-frontend-boundaries.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.1",
+    "sharp": "^0.35.5"
+  },
+  "dependencies": {
+    "react": "19.1.4",
+    "react-dom": "19.1.4"
+  }
+}

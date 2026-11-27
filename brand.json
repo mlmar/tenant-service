@@ -1,0 +1,6 @@
+{
+  "name": "Tenant Service",
+  "slug": "tenant-service",
+  "scheme": "tenant-service",
+  "bundleIdentifier": "com.example.tenantservice"
+}

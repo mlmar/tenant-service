@@ -1,0 +1,49 @@
+/* Generated from branding/tokens.json. Run npm run theme; do not edit. */
+:root {
+  --color-primary: #19354D;
+  --color-primary-light: #E5EDF7;
+  --color-accent: #78DBCC;
+  --color-canvas: #F5F3EF;
+  --color-surface: #FFFDFA;
+  --color-secondary: #EAE6DF;
+  --color-light-card: #FAE6D9;
+  --color-outline: #788392;
+  --color-muted: #536071;
+  --color-on-dark: #FFFDFA;
+  --color-error: #A52A36;
+  --color-error-surface: #FFF3F2;
+  --color-module-border: #DFE5ED;
+  --color-hover-border: #B4C7DD;
+  --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --layout-header-height: 64px;
+  --layout-content-width: 1120px;
+  --layout-content-padding: 24px;
+  --layout-row-gap: 12px;
+  --layout-profile-width: 480px;
+  --card-radius: 16px;
+  --card-padding: 24px;
+  --card-gap: 16px;
+  --button-min-height: 48px;
+  --button-border-radius: 10px;
+  --button-border-width: 1px;
+  --button-padding-horizontal: 20px;
+  --button-padding-vertical: 12px;
+  --button-font-size: 15px;
+  --button-line-height: 22px;
+  --type-title-size: 24px;
+  --type-title-line: 32px;
+  --type-card-title-size: 18px;
+  --type-card-title-line: 26px;
+  --type-body-size: 16px;
+  --type-body-line: 25px;
+  --type-small-size: 14px;
+  --type-small-line: 22px;
+  --type-hero-size: 36px;
+  --type-hero-line: 44px;
+  --type-hero-narrow-size: 28px;
+  --type-hero-narrow-line: 35px;
+}
+.ui-button--primary { --button-bg: var(--color-primary); --button-text: var(--color-on-dark); --button-border: var(--color-primary); }
+.ui-button--accent { --button-bg: var(--color-accent); --button-text: var(--color-primary); --button-border: var(--color-accent); }
+.ui-button--secondary { --button-bg: var(--color-secondary); --button-text: var(--color-primary); --button-border: var(--color-secondary); }
+.ui-button--outline { --button-bg: transparent; --button-text: var(--color-primary); --button-border: var(--color-primary); }

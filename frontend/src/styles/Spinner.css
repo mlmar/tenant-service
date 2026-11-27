@@ -1,0 +1,5 @@
+.spinnerStyle { display: inline-block; flex: none; box-sizing: border-box; width: 20px; height: 20px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spinnerStyle-turn .8s linear infinite; color: var(--color-primary); }
+.spinnerStyle--onDark { color: var(--color-on-dark); }
+.spinnerStyle--accent { color: var(--color-accent); }
+@keyframes spinnerStyle-turn { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinnerStyle { animation: none; } }

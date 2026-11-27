@@ -1,0 +1,9 @@
+.appScreenStyle { width: 100%; min-width: 0; display: flex; flex-direction: column; height: 100dvh; overflow: hidden; background: var(--color-primary); font-family: var(--font-ui); }
+.appScreenStyle-header { flex: none; padding: env(safe-area-inset-top, 0px) max(20px, env(safe-area-inset-right, 0px)) 0 max(20px, env(safe-area-inset-left, 0px)); background: var(--color-primary); }
+.appScreenStyle-headerContent { position: relative; width: 100%; max-width: calc(var(--layout-content-width) - 48px); height: var(--layout-header-height); margin-inline: auto; }
+.appScreenStyle-back, .appScreenStyle-avatar { position: absolute; display: flex; align-items: center; justify-content: center; padding: 0; border: 0; cursor: pointer; }
+.appScreenStyle-back { right: 44px; top: 10px; width: 44px; height: 44px; background: var(--color-primary); }
+.appScreenStyle-avatar { right: 0; top: 14px; width: 36px; height: 36px; border-radius: 50%; overflow: hidden; background: var(--color-light-card); }
+.appScreenStyle-back:focus-visible, .appScreenStyle-avatar:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+.appScreenStyle-scroll { flex: 1; min-height: 0; overflow-y: auto; background: var(--color-canvas); padding-block: 8px; }
+.appScreenStyle-content { box-sizing: border-box; display: flex; flex-direction: column; width: 100%; max-width: var(--layout-content-width); margin-inline: auto; padding: var(--layout-content-padding); gap: var(--layout-row-gap); }

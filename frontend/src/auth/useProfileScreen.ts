@@ -1,0 +1,2 @@
+import{useState}from'react';import{useAppAuth}from'./AuthProvider';import{useAccountIdentity}from'./useAccountIdentity';
+export function useProfileScreen(){const auth=useAppAuth();const{account,email,name}=useAccountIdentity();const[busy,setBusy]=useState(false),[error,setError]=useState('');async function signOut(){if(busy)return;setBusy(true);setError('');try{await auth.signOut();}catch{setError('Unable to sign out. Please retry.');setBusy(false);}}return{account,email,name,busy,error,signOut};}

@@ -1,0 +1,10 @@
+.imageCropEditorStyle, .imageTextEditorStyle { display: flex; flex-direction: column; gap: 12px; font-family: var(--font-ui); color: var(--color-primary); }
+.imageCropEditorStyle-canvas { display: block; width: 100%; height: auto; background: var(--color-surface); touch-action: none; border-radius: 12px; cursor: move; }
+.imageCropEditorStyle-canvas:focus-visible { outline: 3px solid var(--color-accent); }
+.imageTextEditorStyle-canvas { display: block; width: 100%; max-height: 40dvh; object-fit: contain; border-radius: 12px; }
+.imageTextEditorStyle-controls { display: flex; flex-wrap: wrap; gap: 12px; }
+.imageTextEditorStyle-controls > label { flex: 1; min-width: 80px; }
+.imageCropEditorStyle { position: relative; display: block; }
+.imageCropEditorStyle-overlay { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.imageCropEditorStyle-overlay foreignObject { pointer-events: auto; }
+.imageCropEditorStyle-close { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 15px; padding: 0; background: rgb(15 23 42 / 78%); border: 1px solid rgb(255 255 255 / 72%); cursor: pointer; }

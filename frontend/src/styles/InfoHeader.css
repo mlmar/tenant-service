@@ -1,0 +1,13 @@
+.infoHeaderStyle { display: flex; box-sizing: border-box; width: 100%; min-height: 72px; align-items: center; gap: 10px; padding: 10px; border: 1px solid var(--color-accent); border-radius: 16px; background: var(--color-primary-light); font-family: var(--font-ui); }
+.infoHeaderStyle--lite { background: var(--color-surface); border-color: var(--color-secondary); }
+.infoHeaderStyle--compact { min-height: 56px; }
+.infoHeaderStyle-icon { display: inline-flex; flex: none; width: 48px; height: 48px; box-sizing: border-box; align-items: center; justify-content: center; border: 1px solid var(--color-accent); border-radius: 50%; background: var(--color-light-card); }
+.infoHeaderStyle--compact .infoHeaderStyle-icon { width: 30px; height: 30px; }
+.infoHeaderStyle-icon--plain { background: transparent; border: 0; }
+.infoHeaderStyle-iconButton { border: 0; padding: 0; background: transparent; border-radius: 50%; cursor: pointer; }
+.infoHeaderStyle-iconButton:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+.infoHeaderStyle-copy { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: 2px; }
+.infoHeaderStyle-title { margin: 0; color: var(--color-primary); font: 600 14px/19px var(--font-ui); }
+.infoHeaderStyle-description { margin: 0; color: var(--color-muted); font: 12px/17px var(--font-ui); }
+.infoHeaderStyle-eyebrow { margin: 0; color: var(--color-primary); font: 12px/17px var(--font-ui); text-transform: uppercase; }
+.infoHeaderStyle-action { flex-shrink: 0; }

@@ -1,0 +1,24 @@
+.modalScreenStyle { font-family: var(--font-ui); width: min(480px, calc(100vw - 48px)); max-height: calc(100dvh - 48px); padding: 0; border: 1px solid var(--color-secondary); border-radius: 16px; background: var(--color-canvas); color: var(--color-primary); overflow: auto; box-sizing: border-box; }
+.modalScreenStyle::backdrop { background: rgb(5 33 71 / 40%); }
+.modalScreenStyle[open] { display: flex; flex-direction: column; animation: ui-screen-enter .18s ease-out; }
+.modalScreenStyle-header { display: flex; flex: none; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 24px; border-bottom: 1px solid var(--color-secondary); }
+.modalScreenStyle-title { margin: 0; font: 600 18px/26px var(--font-ui); }
+.modalScreenStyle-body { display: flex; flex-direction: column; gap: 16px; padding: 24px; overflow-y: auto; }
+@keyframes ui-screen-enter { from { opacity: 0; translate: 16px 0; } to { opacity: 1; translate: 0 0; } }
+@media (prefers-reduced-motion: reduce) { .modalScreenStyle[open] { animation: none; } }
+.modalScreenStyle--drawer { position: fixed; inset: auto 0 12px; margin: 0 auto; width: min(640px, calc(100vw - 24px)); height: auto; max-height: calc(100dvh - 24px); border-radius: 16px; box-shadow: 0 -18px 42px rgb(5 33 71 / 16%); }
+.modalScreenStyle--drawer[open] { animation: ui-drawer-up .26s cubic-bezier(.215,.61,.355,1); }
+.modalScreenStyle--drawer.modalScreenStyle--closing { animation: ui-drawer-down .2s ease-in forwards; }
+.modalScreenStyle-handleRow { display: flex; flex: none; align-items: center; justify-content: center; min-height: 12px; }
+.modalScreenStyle-handle { width: 38px; height: 4px; border-radius: 2px; background: var(--color-muted); }
+.modalScreenStyle-heading { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.modalScreenStyle-icon { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 32px; height: 32px; box-sizing: border-box; border: 1px solid var(--color-primary); border-radius: 50%; background: var(--color-primary-light); color: var(--color-primary); font-size: 22px; }
+.modalScreenStyle-subtitle { margin: 0; color: var(--color-muted); font: 14px/22px var(--font-ui); }
+.modalScreenStyle--drawer .modalScreenStyle-header { padding: 4px 12px 8px; gap: 10px; }
+.modalScreenStyle--drawer .modalScreenStyle-title { font-size: 16px; line-height: 22px; }
+.modalScreenStyle--drawer .modalScreenStyle-subtitle { font-size: 12px; line-height: 18px; }
+.modalScreenStyle--drawer .modalScreenStyle-body { padding: 12px; gap: 12px; }
+.modalScreenStyle-footer { flex: none; padding: 12px; border-top: 1px solid var(--color-secondary); }
+@keyframes ui-drawer-up { from { transform: translateY(calc(100% + 24px)); } to { transform: translateY(0); } }
+@keyframes ui-drawer-down { to { transform: translateY(calc(100% + 24px)); } }
+@media (prefers-reduced-motion: reduce) { .modalScreenStyle--drawer[open], .modalScreenStyle--drawer.modalScreenStyle--closing { animation: none; } }

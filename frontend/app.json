@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "version": "0.1.0",
+    "orientation": "default",
+    "userInterfaceStyle": "light",
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/icons/favicon.png"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "icon": "./assets/icons/app-icon.png"
+    },
+    "android": {
+      "icon": "./assets/icons/app-icon.png",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icons/adaptive-foreground.png",
+        "monochromeImage": "./assets/icons/adaptive-monochrome.png"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "fingerprint"
+    },
+    "plugins": [
+      "@clerk/expo",
+      "expo-secure-store",
+      "expo-web-browser"
+    ],
+    "icon": "./assets/icons/app-icon.png"
+  }
+}

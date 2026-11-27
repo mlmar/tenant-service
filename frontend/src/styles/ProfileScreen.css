@@ -1,0 +1,3 @@
+.profileScreenStyle { display: flex; flex-direction: column; width: 100%; max-width: var(--layout-profile-width); margin-inline: auto; gap: var(--layout-row-gap); }
+.profileScreenStyle-identity { display: flex; flex-direction: column; width: 100%; align-items: center; gap: 4px; }
+.profileScreenStyle-email { text-align: center; overflow-wrap: anywhere; }

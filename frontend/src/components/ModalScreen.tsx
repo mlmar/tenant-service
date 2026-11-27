@@ -1,0 +1,13 @@
+import { Icon } from './Icon';
+import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { theme } from '../branding/theme';
+import type { OverlayScreenProps } from './OverlayScreen.types';
+export function ModalScreen({visible,title,onClose,children,busy=false,drawer=true,subtitle,footer,icon}:OverlayScreenProps & {drawer?:boolean}){
+ return <Modal visible={visible} transparent animationType="slide" onRequestClose={()=>{if(!busy)onClose();}}><View style={[styles.backdrop,drawer&&styles.drawerBackdrop]}><View style={[styles.panel,drawer&&styles.drawer]} accessibilityViewIsModal>
+ {drawer?<View style={styles.handleRow}><View style={styles.handle}/></View>:null}
+ <View style={styles.header}>{drawer?<View style={styles.leadingIcon}><Icon name={icon??'person-outline'} tone="primary"/></View>:null}<View style={styles.heading}><Text accessibilityRole="header" style={styles.title}>{title}</Text>{subtitle?<Text style={styles.subtitle}>{subtitle}</Text>:null}</View><Pressable accessibilityRole="button" accessibilityLabel={`Close ${title}`} disabled={busy} onPress={onClose} style={styles.close}><Icon name="close-outline"/></Pressable></View>
+ <ScrollView contentContainerStyle={styles.body}>{children}</ScrollView>
+ {footer?<View style={styles.footer}>{footer}</View>:null}
+ </View></View></Modal>;
+}
+const styles=StyleSheet.create({backdrop:{flex:1,backgroundColor:'rgba(5,33,71,0.4)',justifyContent:'center',alignItems:'center',padding:24},drawerBackdrop:{justifyContent:'flex-end',alignItems:'center',padding:12},panel:{width:'100%',maxWidth:480,maxHeight:'90%',backgroundColor:theme.mainBackground,borderRadius:16,overflow:'hidden'},drawer:{maxWidth:640,maxHeight:'94%',borderRadius:16},header:{flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingHorizontal:12,paddingVertical:4,borderBottomWidth:1,borderColor:theme.neutralWhite},title:{fontSize:16,lineHeight:22,fontWeight:'600',color:theme.primaryDark},close:{width:44,height:44,alignItems:'center',justifyContent:'center'},closeText:{fontSize:26,color:theme.primaryDark},leadingIcon:{width:32,height:32,borderRadius:16,borderWidth:1,borderColor:theme.primaryDark,backgroundColor:theme.primaryLight,alignItems:'center',justifyContent:'center',marginRight:12},heading:{flex:1,gap:2},subtitle:{fontSize:12,lineHeight:18,color:theme.mutedText},handleRow:{height:12,alignItems:'center',justifyContent:'center'},handle:{width:38,height:4,borderRadius:2,backgroundColor:theme.mutedText},footer:{padding:16,borderTopWidth:1,borderColor:theme.neutralWhite},body:{padding:12,gap:12}});
